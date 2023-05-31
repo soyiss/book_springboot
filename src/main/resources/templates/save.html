@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
 <h2>save.html</h2>
 <form action="/save" method="post">
-  <input type="text" placeholder="책제목" name="bookName"><br>
-  <input type="text" placeholder="책저자" name="bookAuthor"><br>
-  <input type="text" placeholder="책가격" name="bookPrice"><br>
-  <input type="submit" value="등록">
+  <input type="text" placeholder="책제목" name="bookName" class="form-control">
+  <input type="text" placeholder="책저자" name="bookAuthor" class="form-control">
+  <input type="text" placeholder="책가격" name="bookPrice" class="form-control">
+  <input type="submit" value="등록" class="btn btn-success">
 </form>
 </body>
 </html>

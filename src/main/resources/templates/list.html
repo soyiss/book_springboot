@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>author</th>
+      <th>price</th>
+      <th>조회</th>
+      <th>삭제</th>
+      <th>수정</th>
+    </tr>
+    <tr th:each="book: ${bookList}">
+      <td th:text="${book.id}"></td>
+      <td th:text="${book.bookName}"></td>
+      <td th:text="${book.bookAuthor}"></td>
+      <td th:text="${book.bookPrice}"></td>
+
+      <!-- /book?id=1 이렇게 했는데 스프링부트에서는 /book/1로 주소형태를 쓴다     -->
+      <td>
+      <!-- 버티컬바를 붙여줘야함(|) , 안붙이면 주소값이 제대로 적용되지 않는다.      -->
+      <!--  조회를 클릭하면 BookController에 id값을 파라미터로 넘겨준다       -->
+        <a th:href="@{|/book/${book.id}|}">조회</a>
+      </td>
+      <td>
+        <a th:href="@{|/book/delete/${book.id}|}">삭제</a>
+      </td>
+      <td>
+        <a th:href="@{|/book/update/${book.id}|}">수정</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
